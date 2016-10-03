@@ -1,0 +1,22 @@
+RewriteEngine On
+Options +FollowSymLinks
+Options -Indexes
+RewriteRule ^logout$ index.php?action=logout
+RewriteRule ^sessionexpired$ index.php?session=expired
+RewriteRule ^a/([a-zA-Z0-9_-]+)$ index.php?admin=$1
+RewriteRule ^s/([a-zA-Z0-9_-]+)$ index.php?staff=$1
+
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?page=$1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . / [L,R=302]
+
+# /* CopyRight PowerChaos 2016 */
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php54” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddType application/x-httpd-ea-php54 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
